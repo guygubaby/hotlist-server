@@ -20,3 +20,5 @@ COPY --from=build /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 COPY --from=build /go/release/hotlist_server /
 EXPOSE 5000
 CMD ["./hotlist_server"]
+
+
