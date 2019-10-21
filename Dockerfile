@@ -12,11 +12,11 @@ WORKDIR /go/release
 
 COPY . .
 
-RUN GOOS=linux CGO_ENABLED=0 go build -ldflags="-s -w" -installsuffix cgo -o hotlist_server main.go
+RUN go build -o hotlist_server main.go
 
 FROM scratch as prod
 
 COPY --from=build /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 COPY --from=build /go/release/hotlist_server /
 EXPOSE 5000
-CMD ["/hotlist_server"]
+CMD ["./hotlist_server"]
