@@ -5,7 +5,7 @@ services:
   - docker
 
 install:
-  - cp ./Dockerfile ./
+#  - cp ./Dockerfile ./
   - docker build -t guygubaby/hotlist-server-golang:latest .
 
 script:
