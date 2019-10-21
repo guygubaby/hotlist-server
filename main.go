@@ -1,6 +1,8 @@
 package main
 
-import "github.com/guygubaby/hotlist-server/router"
+import (
+	"github.com/guygubaby/hotlist-server/router"
+)
 
 func main() {
 	r := router.InitRouter()

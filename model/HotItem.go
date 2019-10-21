@@ -1,9 +1,11 @@
 package model
 
+import "go.mongodb.org/mongo-driver/bson/primitive"
 
 type HotItem struct {
-	Title string
-	Url string
-	Desc string
-	Cate int
+	ID primitive.ObjectID  `json:"_id" bson:"_id"`
+	Title string `json:"title"`
+	Url string `json:"url"`
+	Desc *string `json:"desc"`
+	Cate int `json:"cate"`
 }
