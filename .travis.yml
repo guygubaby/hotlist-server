@@ -1,0 +1,20 @@
+language: go
+go:
+  - "1.13.x"
+services:
+  - docker
+
+install:
+  - cp ./Dockerfile ./
+  - docker build -t guygubaby/hotlist-server-golang:latest .
+
+script:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push guygubaby/hotlist-server-golang:latest
+
+notifications:
+  email:
+    recipients:
+      - 1907004005@qq.com
+    on_success: change
+    on_failure: always
