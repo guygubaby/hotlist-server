@@ -24,8 +24,8 @@ func HotListRoute(c *gin.Context) {
 	})
 }
 
-func CateRoute(c *gin.Context) {
-	res := controller.InitAllCates()
+func TypesRoute(c *gin.Context) {
+	res := controller.InitAllTypes()
 	c.JSON(http.StatusOK,gin.H{
 		"code":0,
 		"data": res,
@@ -34,10 +34,10 @@ func CateRoute(c *gin.Context) {
 
 func InitRouter() *gin.Engine {
 	r :=gin.New()
-	api := r.Group("/api/v1")
+	api := r.Group("/api")
 
 	api.GET("/",RootRoute)
-	api.GET("/cate", CateRoute)
+	api.GET("/types", TypesRoute)
 	api.GET("/list",HotListRoute)
 
 	return r
