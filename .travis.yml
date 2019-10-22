@@ -11,13 +11,11 @@ env:
 services:
   - docker
 
-before_install:
+script:
   - go build -ldflags="-s -w" -installsuffix cgo -o hotlist_server .
-
-install:
   - docker build -t guygubaby/hotlist-server-golang:latest .
 
-script:
+after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push guygubaby/hotlist-server-golang:latest
 
