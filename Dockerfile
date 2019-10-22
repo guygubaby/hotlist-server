@@ -4,4 +4,4 @@ RUN apk update \
     && apk add --no-cache bash
 WORKDIR /usr/app
 COPY hotlist-server /
-ENTRYPOINT ["./hotlist-server"]
+ENTRYPOINT ["./usr/app/hotlist-server"]
