@@ -4,6 +4,7 @@ go:
 
 env:
   global:
+    - CGO_ENABLED=0
     - GOOS=linux
     - GOARCH=amd64
 
@@ -11,7 +12,7 @@ services:
   - docker
 
 before_install:
-  - go build -o hotlist_server .
+  - go build -ldflags="-s -w" -installsuffix cgo -o hotlist_server .
 
 install:
   - docker build -t guygubaby/hotlist-server-golang:latest .
