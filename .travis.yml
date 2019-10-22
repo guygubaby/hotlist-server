@@ -11,7 +11,7 @@ services:
   - docker
 
 before_install:
-  - go build -o hotlist-server .
+  - go build -o hotlist_server .
 
 install:
   - docker build -t guygubaby/hotlist-server-golang:latest .
