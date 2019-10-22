@@ -1,11 +1,19 @@
 language: go
 go:
   - "1.13.x"
+
+env:
+  global:
+    - GOOS=linux
+    - GOARCH=amd64
+
 services:
   - docker
 
+before_install:
+  - go build -o hotlist-server .
+
 install:
-  - go build -o hotlist-server main.go
   - docker build -t guygubaby/hotlist-server-golang:latest .
 
 script:
